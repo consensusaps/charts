@@ -2,6 +2,14 @@
 
 The release numbering uses [semantic versioning](http://semver.org).
 
+## 3.8.0
+
+- appVersion 1.8.3.
+- Remove values whose env vars Cube no longer reads: `config.scheduledRefreshConcurrency`
+  (`CUBEJS_SCHEDULED_REFRESH_CONCURRENCY`; use `config.scheduledRefreshQueriesPerAppId`),
+  `config.topicName` (`CUBEJS_TOPIC_NAME`) and the whole `redis` block. Redis support was
+  removed in Cube 0.36, and Cube 1.x reads `CUBEJS_REDIS_URL` only to throw a startup error.
+
 ## 3.4.0
 
 - Add `api.replicaCount` (replaces `api.apiCount`, which is kept as a
