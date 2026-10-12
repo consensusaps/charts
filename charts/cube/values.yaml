@@ -141,12 +141,7 @@ config:
   ##
   scheduledRefreshTimezones:
 
-  ## How many pre-aggregations refresh worker will build in parallel. Please note changing this param doesn't change queue concurrency and it should be adjusted accordingly
-  ## DEPRECATED: This setting is deprecated. Use scheduledRefreshQueriesPerAppId instead.
-  ##
-  scheduledRefreshConcurrency:
-
-  ## How many queries will be run concurrently per app (tenant). Replaces scheduledRefreshConcurrency.
+  ## How many queries will be run concurrently per app (tenant).
   ##
   scheduledRefreshQueriesPerAppId:
   
@@ -174,11 +169,6 @@ config:
   ## The maximum row limit in the result set.
   ##
   queryLimit:
-
-  ## The name of the Amazon SNS or Google Cloud Pub/Sub topic
-  ## Defaults to <process.env.CUBEJS_APP>-process if undefined, and finally cubejs-process
-  ##
-  topicName:
 
   ## The number of seconds without a touch before pre-aggregation is considered orphaned and marked for removal.
   ##
@@ -240,35 +230,6 @@ config:
   #   mountPath: /cube/conf/schema
   #   subPath: model
 
-redis:
-  ## The host URL for a Redis server
-  ##
-  url:
-
-  ## The password used to connect to the Redis server
-  ##
-  password:
-  # passwordFromSecret:
-  #   name:
-  #   key:
-
-  ## If true, then the connection to the Redis server is protected by TLS authentication. Defaults to false
-  ##
-  tls:
-
-  ## The minimum number of connections to keep active in the Redis connection pool for a single appId (tenant).
-  ## Must be lower than poolMax. Defaults to 2
-  ##
-  poolMin:
-
-  ## The maximum number of connections to keep active in the Redis connection pool for a single appId (tenant).
-  ## Must be higher than poolMin. Defaults to 1000
-  ##
-  poolMax:
-
-  ## Use ioredis instead of redis. Defaults to false
-  ##
-  useIoRedis:
 
 jwt:
   ## A valid URL to a JSON Web Key Sets (JWKS)
